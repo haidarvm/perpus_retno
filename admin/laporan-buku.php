@@ -1,5 +1,6 @@
 <?php
 include "../conn.php";
+require "../encrypt.php";
 require('../fpdf17/fpdf.php');
 /**
  Judul  : Laporan PDF (portait):
@@ -25,12 +26,12 @@ $column_jumlah_buku = "";
 
 //For each row, add the field to the corresponding column
 while ($row = mysqli_fetch_array($result)) {
-    $judul = $row["judul"];
-    $pengarang = $row["pengarang"];
-    $th_terbit = $row["th_terbit"];
-    $penerbit = $row["penerbit"];
-    $isbn = $row["isbn"];
-    $jumlah_buku = $row["jumlah_buku"];
+    $judul = decrypt_text($row["judul"]);
+    $pengarang = decrypt_text($row["pengarang"]);
+    $th_terbit = decrypt_text($row["th_terbit"]);
+    $penerbit = decrypt_text($row["penerbit"]);
+    $isbn = decrypt_text($row["isbn"]);
+    $jumlah_buku = decrypt_text($row["jumlah_buku"]);
 
 
 

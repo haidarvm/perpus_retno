@@ -4,6 +4,7 @@ if (empty($_SESSION['username'])) {
     header('location:../index.php');
 } else {
     include "../conn.php";
+    require "../encrypt.php";
 ?>
     <!DOCTYPE html>
     <html>
@@ -181,39 +182,39 @@ if (empty($_SESSION['username'])) {
                                     </tr>
                                     <tr>
                                         <td width="250">Judul</td>
-                                        <td width="550"><?php echo $data['judul']; ?></td>
+                                        <td width="550"><?php echo decrypt_text($data['judul']); ?></td>
                                     </tr>
                                     <tr>
                                         <td>Pengarang</td>
-                                        <td><?php echo $data['pengarang']; ?></td>
+                                        <td><?php echo decrypt_text($data['pengarang']); ?></td>
                                     </tr>
                                     <tr>
                                         <td>Tahun Terbit</td>
-                                        <td><?php echo $data['th_terbit']; ?></td>
+                                        <td><?php echo decrypt_text($data['th_terbit']); ?></td>
                                     </tr>
                                     <tr>
                                         <td>Penerbit</td>
-                                        <td><?php echo $data['penerbit']; ?></td>
+                                        <td><?php echo decrypt_text($data['penerbit']); ?></td>
                                     </tr>
                                     <tr>
                                         <td>ISBN</td>
-                                        <td><?php echo $data['isbn']; ?></td>
+                                        <td><?php echo decrypt_text($data['isbn']); ?></td>
                                     </tr>
                                     <tr>
                                         <td>Kategori</td>
-                                        <td><?php echo $data['kategori']; ?></td>
+                                        <td><?php echo decrypt_text($data['kategori']); ?></td>
                                     </tr>
                                     <tr>
                                         <td>Jumlah Halaman</td>
-                                        <td><?php echo $data['jumlah_buku']; ?></td>
+                                        <td><?php echo decrypt_text($data['jumlah_buku']); ?></td>
                                     </tr>
                                     <tr>
                                         <td>Asal Buku</td>
-                                        <td colspan="2"><?php echo $data['asal']; ?></td>
+                                        <td colspan="2"><?php echo decrypt_text($data['asal']); ?></td>
                                     </tr>
                                     <tr>
                                         <td>Tanggal Input</td>
-                                        <td colspan="2"><?php echo $data['tgl_input']; ?></td>
+                                        <td colspan="2"><?php echo decrypt_text($data['tgl_input']); ?></td>
                                     </tr>
                                 </table>
 

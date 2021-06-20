@@ -4,6 +4,7 @@ if (empty($_SESSION['username'])) {
     header('location:../index.php');
 } else {
     include "../conn.php";
+    require "../encrypt.php";
 ?>
     <!DOCTYPE html>
     <html>
@@ -179,50 +180,50 @@ if (empty($_SESSION['username'])) {
                                     <div class="form-group">
                                         <label class="col-sm-2 col-sm-2 control-label">Judul</label>
                                         <div class="col-sm-8">
-                                            <input name="judul" type="text" id="judul" class="form-control" autocomplete="off" value="<?php echo $data['judul']; ?>" required="" />
+                                            <input name="judul" type="text" id="judul" class="form-control" autocomplete="off" value="<?php echo decrypt_text($data['judul']); ?>" required="" />
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-sm-2 col-sm-2 control-label">Pengarang</label>
                                         <div class="col-sm-8">
-                                            <input name="pengarang" type="text" id="pengarang" class="form-control" autocomplete="off" value="<?php echo $data['pengarang']; ?>" required="" />
+                                            <input name="pengarang" type="text" id="pengarang" class="form-control" autocomplete="off" value="<?php echo decrypt_text($data['pengarang']); ?>" required="" />
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-sm-2 col-sm-2 control-label">Tahun Terbit</label>
                                         <div class="col-sm-8">
-                                            <input name="th_terbit" type="text" id="th_terbit" class="form-control" autocomplete="off" value="<?php echo $data['th_terbit']; ?>" required="" />
+                                            <input name="th_terbit" type="text" id="th_terbit" class="form-control" autocomplete="off" value="<?php echo decrypt_text($data['th_terbit']); ?>" required="" />
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-sm-2 col-sm-2 control-label">Penerbit</label>
                                         <div class="col-sm-8">
-                                            <input name="penerbit" type="text" id="penerbit" class="form-control" autocomplete="off" value="<?php echo $data['penerbit']; ?>" required="" />
+                                            <input name="penerbit" type="text" id="penerbit" class="form-control" autocomplete="off" value="<?php echo decrypt_text($data['penerbit']); ?>" required="" />
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-sm-2 col-sm-2 control-label">ISBN</label>
                                         <div class="col-sm-8">
-                                            <input name="isbn" type="text" id="isbn" class="form-control" autocomplete="off" value="<?php echo $data['isbn']; ?>" required="" />
+                                            <input name="isbn" type="text" id="isbn" class="form-control" autocomplete="off" value="<?php echo decrypt_text($data['isbn']); ?>" required="" />
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-sm-2 col-sm-2 control-label">Kategori</label>
                                         <div class="col-sm-8">
-                                            <input name="kategori" type="text" id="Kategori" class="form-control" autocomplete="off" value="<?php echo $data['kategori']; ?>" required="" />
+                                            <input name="kategori" type="text" id="Kategori" class="form-control" autocomplete="off" value="<?php echo decrypt_text($data['kategori']); ?>" required="" />
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-sm-2 col-sm-2 control-label">Jumlah Halaman</label>
                                         <div class="col-sm-8">
-                                            <input name="jumlah_buku" type="text" id="jumlah_buku" class="form-control" autocomplete="off" value="<?php echo $data['jumlah_buku']; ?>" required />
+                                            <input name="jumlah_buku" type="text" id="jumlah_buku" class="form-control" autocomplete="off" value="<?php echo decrypt_text($data['jumlah_buku']); ?>" required />
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-sm-2 col-sm-2 control-label">Asal</label>
                                         <div class="col-sm-4">
                                             <select class="form-control" name="asal" id="asal" required>
-                                                <option value="<?php echo $data['asal']; ?>"> <?php echo $data['asal']; ?></option>
+                                                <option value="<?php echo decrypt_text($data['asal']); ?>"> <?php echo decrypt_text($data['asal']); ?></option>
                                                 <option value="Pembelian"> Pembelian</option>
                                                 <option value="Sumbangan"> Sumbangan</option>
                                                 <option value="Koleksi Perpustakaan"> Koleksi PerpustakaanKU</option>
@@ -232,20 +233,20 @@ if (empty($_SESSION['username'])) {
                                     <div class="form-group">
                                         <label class="col-sm-2 col-sm-2 control-label">Tanggal Input</label>
                                         <div class="col-sm-8">
-                                            <input name="tgl_input" type="text" id="tgl_input" class="form-control" autocomplete="off" value="<?php echo $data['tgl_input']; ?>" readonly="readonly" />
+                                            <input name="tgl_input" type="text" id="tgl_input" class="form-control" autocomplete="off" value="<?php echo decrypt_text($data['tgl_input']); ?>" readonly="readonly" />
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-sm-2 col-sm-2 control-label">Link e-book</label>
                                         <div class="col-sm-8">
-                                            <input name="link_buku" type="text" id="link_buku" class="form-control" autocomplete="off" value="<?php echo $data['link_buku']; ?>" required />
+                                            <input name="link_buku" type="text" id="link_buku" class="form-control" autocomplete="off" value="<?php echo decrypt_text($data['link_buku']); ?>" required />
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-sm-2 col-sm-2 control-label">Foto</label>
                                         <div class="col-sm-8">
                                             <span class="help-block">Silahkan memilih foto untuk update atau mengedit data, tekan tombol batal untuk kembali.</span>
-                                            <img src="<?php echo $data['gambar']; ?>" height="250" width="250" alt="Foto Anggota" style="margin-bottom: 10px;" /><br />
+                                            <img src="<?php echo decrypt_text($data['gambar']); ?>" height="250" width="250" alt="Foto Anggota" style="margin-bottom: 10px;" /><br />
                                             <input name="nama_file" id="nama_file" type="file" />
                                         </div>
                                     </div>

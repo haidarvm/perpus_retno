@@ -49,7 +49,7 @@ if ($level == 'admin') {
 	} else {
 		header('location:anggota/index.php');
 
-		$q = mysqli_query($conn, "select * from data_anggota where username='$username' and password='$password'");
+		$q = mysqli_query($conn, "select * from data_anggota where username='$username' and password='".hash('sha256',$password)."'");
 		$row = mysqli_fetch_array($q);
 
 		if (mysqli_num_rows($q) == 1) {

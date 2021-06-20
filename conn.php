@@ -1,8 +1,8 @@
 <?php
-$db_name = "db_perpuspro";
+$db_name = "perpus";
 
-$conn = mysqli_connect("localhost", "root", "");
-mysqli_select_db($conn, "db_perpuspro");
+$conn = mysqli_connect("localhost", "root", "Bismillah");
+mysqli_select_db($conn, $db_name);
 
 //fungsi format rupiah 
 /**function format_rupiah($rp) {

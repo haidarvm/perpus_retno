@@ -4,6 +4,7 @@ if (empty($_SESSION['username'])) {
     header('location:../index.php');
 } else {
     include "../conn.php";
+    require "../encrypt.php";
 ?>
     <!DOCTYPE html>
     <html>
@@ -213,15 +214,15 @@ if (empty($_SESSION['username'])) {
                                     <?php while ($data = mysqli_fetch_array($tampil)) { ?>
                                         <tbody>
                                             <tr>
-                                                <td><a href="detail-buku.php?hal=edit&kd=<?php echo $data['id']; ?>"><span class="fa fa-book"></span> <?php echo $data['judul']; ?></a></td>
-                                                <td><?php echo $data['pengarang']; ?></td>
-                                                <td><?php echo $data['th_terbit']; ?></td>
-                                                <td><?php echo $data['penerbit']; ?></td>
-                                                <td><?php echo $data['jumlah_buku']; ?></td>
+                                                <td><a href="detail-buku.php?hal=edit&kd=<?php echo $data['id']; ?>"><span class="fa fa-book"></span> <?php echo decrypt_text($data['judul']); ?></a></td>
+                                                <td><?php echo decrypt_text($data['pengarang']); ?></td>
+                                                <td><?php echo decrypt_text($data['th_terbit']); ?></td>
+                                                <td><?php echo decrypt_text($data['penerbit']); ?></td>
+                                                <td><?php echo decrypt_text($data['jumlah_buku']); ?></td>
                                                 <td>
                                                     <center>
                                                         <div id="thanks"><a class="btn btn-sm btn-primary" data-placement="bottom" data-toggle="tooltip" title="Edit Buku" href="edit-buku.php?hal=edit&kd=<?php echo $data['id']; ?>"><span class="glyphicon glyphicon-edit"></span></a>
-                                                            <a onclick="return confirm ('Yakin hapus <?php echo $data['judul']; ?>.?');" class="btn btn-sm btn-danger tooltips" data-placement="bottom" data-toggle="tooltip" title="Hapus Buku" href="hapus-buku.php?hal=hapus&kd=<?php echo $data['id']; ?>"><span class="glyphicon glyphicon-trash"></a>
+                                                            <a onclick="return confirm ('Yakin hapus <?php echo decrypt_text($data['judul']); ?>.?');" class="btn btn-sm btn-danger tooltips" data-placement="bottom" data-toggle="tooltip" title="Hapus Buku" href="hapus-buku.php?hal=hapus&kd=<?php echo $data['id']; ?>"><span class="glyphicon glyphicon-trash"></a>
                                                     </center>
                                                 </td>
                                             </tr>

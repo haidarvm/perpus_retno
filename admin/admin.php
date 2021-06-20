@@ -215,7 +215,7 @@ if (empty($_SESSION['username'])) {
                                             <tr>
                                                 <td><?php echo $data['user_id']; ?></td>
                                                 <td><?php echo $data['username']; ?></td>
-                                                <td><?php echo $data['password']; ?></td>
+                                                <td><?php //echo $data['password']; ?></td>
                                                 <td><a href="detail-admin.php?hal=edit&kd=<?php echo $data['user_id']; ?>"><span class="glyphicon glyphicon-user"></span> <?php echo $data['fullname']; ?></a></td>
                                                 <td>
                                                     <center><img src="<?php echo $data['gambar']; ?>" class="img-circle" height="80" width="75" style="border: 3px solid #333333;" /></center>

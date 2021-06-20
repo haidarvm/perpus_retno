@@ -2,6 +2,7 @@
 $namafolder = "gambar_buku/"; //tempat menyimpan file
 
 include "../conn.php";
+require "../encrypt.php";
 
 if (!empty($_FILES["nama_file"]["tmp_name"])) {
    $jenis_gambar = $_FILES['nama_file']['type'];
@@ -20,7 +21,7 @@ if (!empty($_FILES["nama_file"]["tmp_name"])) {
    if ($jenis_gambar == "image/jpeg" || $jenis_gambar == "image/jpg" || $jenis_gambar == "image/gif" || $jenis_gambar == "image/x-png") {
       $gambar = $namafolder . basename($_FILES['nama_file']['name']);
       if (move_uploaded_file($_FILES['nama_file']['tmp_name'], $gambar)) {
-         $sql = "UPDATE data_buku SET judul='$judul', pengarang='$pengarang', th_terbit='$th_terbit', penerbit='$penerbit', isbn='$isbn', kategori='$kategori', jumlah_buku='$jumlah_buku', asal='$asal', tgl_input='$tgl_input', gambar='$gambar', link_buku='$link_buku' WHERE id='$id'";
+         $sql = "UPDATE data_buku SET judul='".encrypt_text($judul)."', pengarang='".encrypt_text($pengarang)."', th_terbit='".encrypt_text($th_terbit)."', penerbit='".encrypt_text($penerbit)."', isbn='".encrypt_text($isbn)."', kategori='".encrypt_text($kategori)."', jumlah_buku='".encrypt_text($jumlah_buku)."', asal='".encrypt_text($asal)."', tgl_input='".encrypt_text($tgl_input)."', gambar='".encrypt_text($gambar)."', link_buku='".encrypt_text($link_buku)."' WHERE id='$id'";
          $res = mysqli_query($conn, $sql) or die(mysqli_error($conn));
          echo "Gambar berhasil dikirim ke direktori" . $gambar;
          header('location:buku.php');

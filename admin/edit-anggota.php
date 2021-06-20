@@ -198,7 +198,7 @@ if (empty($_SESSION['username'])) {
                                     <div class="form-group">
                                         <label class="col-sm-2 col-sm-2 control-label">Password</label>
                                         <div class="col-sm-8">
-                                            <input name="password" type="text" id="password" class="form-control" placeholder="Password" value="<?php echo $data['password']; ?>" required />
+                                            <input name="password" type="password" id="password" class="form-control" placeholder="Password" value="<?php echo $data['password']; ?>" required />
                                         </div>
                                     </div>
                                     <div class="form-group">

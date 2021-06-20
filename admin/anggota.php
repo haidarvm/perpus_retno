@@ -225,7 +225,7 @@ if (empty($_SESSION['username'])) {
                                                 <td><?php echo $data['no_induk']; ?></td>
                                                 <td><a href="detail-anggota.php?hal=edit&kd=<?php echo $data['id']; ?>"><span class="fa fa-user"></span> <?php echo $data['nama']; ?></a></td>
                                                 <td><?php echo $data['username']; ?></td>
-                                                <td><?php echo $data['password']; ?></td>
+                                                <td><?php //echo $data['password']; ?></td>
                                                 <td><?php echo $data['jk']; ?></td>
                                                 <td><?php echo $data['kelas']; ?></td>
                                                 <td><?php echo $data['ttl']; ?></td>
