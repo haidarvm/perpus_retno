@@ -9,7 +9,7 @@ if (!empty($_FILES["nama_file"]["tmp_name"])) {
 	$no_induk = $_POST['no_induk'];
 	$nama = $_POST['nama'];
 	$username = $_POST['username'];
-	$password = $_POST['password'];
+	$password = hash('sha256',$_POST['password']);
 	$jk = $_POST['jk'];
 	$kelas = $_POST['kelas'];
 	$ttl = $_POST['ttl'];
