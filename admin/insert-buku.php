@@ -6,7 +6,7 @@ include "../conn.php";
 if (!empty($_FILES["nama_file"]["tmp_name"])) {
     $jenis_gambar = $_FILES['nama_file']['type'];
     $id = $_POST['id'];
-    $judul = $_POST['judul'];
+    $judul = encrypt_text($_POST['judul']);
     $pengarang = $_POST['pengarang'];
     $th_terbit = $_POST['th_terbit'];
     $penerbit = $_POST['penerbit'];
